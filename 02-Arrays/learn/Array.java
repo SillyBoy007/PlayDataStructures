@@ -68,7 +68,7 @@ public class Array {
         // loitering objects != memory leak
         data[size] = null;
 
-        if (size == data.length / 4 && data.length / 2 != 0) {
+        if (size == data.length / 4 && data.length / 2 >= 1) {
             resize(data.length / 2);
         }
 
@@ -136,14 +136,16 @@ public class Array {
         Array array = new Array(2);
         array.add(0, 1);
         array.add(1, 2);
-        array.add(2, 3);
-        array.add(3, 3);
-
-        array.add(4, 3);
-        array.add(5, 3);
+        array.add(1, 2);
+        array.add(1, 2);
+        array.add(1, 2);
+        array.add(1, 2);
 
         array.remove(1);
-        //array.remove(1);
+        array.remove(1);
+        array.remove(1);
+        array.remove(1);
+        array.remove(1);
 
         System.out.println(array);
     }
