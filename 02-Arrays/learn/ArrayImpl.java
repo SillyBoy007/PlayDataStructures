@@ -60,10 +60,10 @@ public class ArrayImpl {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(String.format("Array capacity:%s, size:%s  [",data.length,size));
+        builder.append(String.format("Array capacity:%s, size:%s  [", data.length, size));
         for (int i = 0; i < size; i++) {
             builder.append(data[i]);
-            if (!Objects.equals(size-1,i)){
+            if (!Objects.equals(size - 1, i)) {
                 builder.append(",");
             }
         }
@@ -75,11 +75,11 @@ public class ArrayImpl {
     public static void main(String[] args) {
         ArrayImpl array = new ArrayImpl(2);
 
-        array.add(0,1);
-        array.add(1,2);
-        array.add(2,3);
-        array.add(3,5);
-        array.add(4,5);
+        array.add(0, 1);
+        array.add(1, 2);
+        array.add(2, 3);
+        array.add(3, 5);
+        array.add(4, 5);
         array.remove(4);
         array.remove(3);
         array.remove(2);
