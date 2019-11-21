@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Objects;
 
 public class SingleLink {
@@ -75,7 +76,7 @@ public class SingleLink {
             SingleLink.this.retDatas[SingleLink.this.index++] = this.data;
 
             if (this.next != null) {
-                this.toArrayNode();
+                this.next.toArrayNode();
             }
         }
 
@@ -111,10 +112,10 @@ public class SingleLink {
             if (Objects.equals(data, this.root.data)) {
                 return data;
             }
+            this.count--;
             return this.root.removeNode(this.root, data);
 
         }
-        this.count --;
         return null;
 
     }
@@ -133,11 +134,11 @@ public class SingleLink {
             throw new IllegalArgumentException();
         }
         this.index = 0;
-        this.root.setNode(index,data);
+        this.root.setNode(index, data);
     }
 
-    public Object[] toArray(){
-        if (this.root == null){
+    public Object[] toArray() {
+        if (this.root == null) {
             return new Object[]{};
         }
         this.index = 0;
@@ -145,5 +146,16 @@ public class SingleLink {
         this.root.toArrayNode();
 
         return this.retDatas;
+    }
+
+    public static void main(String[] args) {
+        SingleLink singleLink = new SingleLink();
+        singleLink.add(1);
+        singleLink.add(2);
+        singleLink.add(3);
+        System.out.println(singleLink.contains(2));
+        singleLink.remove(2);
+        System.out.println(singleLink.contains(2));
+        System.out.println(Arrays.toString(singleLink.toArray()));
     }
 }
